@@ -10,7 +10,8 @@ Keywords: security,evtx,incident-response,blue-team,threat-hunting
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Classifier: Topic :: Security
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Logging
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 

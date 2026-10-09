@@ -15,7 +15,8 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
-    "Topic :: Security",
+    "Topic :: System :: Systems Administration",
+    "Topic :: System :: Logging",
 ]
 keywords = ["security", "evtx", "incident-response", "blue-team", "threat-hunting"]
 
@@ -26,3 +27,6 @@ keywords = ["security", "evtx", "incident-response", "blue-team", "threat-huntin
 
 [project.scripts]
 evtx-hound = "triage:main"
+
+[tool.setuptools]
+py-modules = ["triage"]

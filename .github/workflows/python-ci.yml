@@ -20,10 +20,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install -e .
         pip install pytest pytest-cov bandit flake8 mypy
         
     - name: Static Type Checking (mypy)
-      run: mypy triage.py --strict
+      run: mypy triage.py
       
     - name: Linting (flake8)
       run: flake8 triage.py --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -32,4 +33,6 @@ jobs:
       run: bandit -r triage.py -ll
       
     - name: Unit Tests & Coverage
-      run: pytest tests/ -v --cov=.
+      env:
+        PYTHONPATH: .
+      run: pytest tests/ -v

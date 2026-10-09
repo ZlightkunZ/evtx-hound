@@ -23,7 +23,7 @@ logger = logging.getLogger("EvtxAnalyzer")
 class EvtxAnalyzer:
     """Core analyzer class for parsing and extracting anomalies from EVTX logs."""
     
-    def __init__(self, file_path: Path):
+    def __init__(self, file_path: Path) -> None:
         self.file_path = file_path
         self.findings: List[Dict[str, Any]] = []
 
