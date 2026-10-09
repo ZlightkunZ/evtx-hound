@@ -54,18 +54,20 @@ class EvtxAnalyzer:
 
     def _simulate_parsing_engine(self) -> None:
         """Mock engine that simulates identifying a LOLBin."""
-        # Simulated high-fidelity finding
-        suspicious_event = {
+        parent_proc: str = "WINWORD.EXE"
+        child_proc: str = "powershell.exe -ExecutionPolicy Bypass -e SQBFAFgA..."
+        
+        suspicious_event: Dict[str, Any] = {
             "event_id": 4688,
             "timestamp": "2026-10-09T12:00:00Z",
-            "parent_process": "WINWORD.EXE",
-            "child_process": "powershell.exe -ExecutionPolicy Bypass -e SQBFAFgA...",
+            "parent_process": parent_proc,
+            "child_process": child_proc,
             "severity": "CRITICAL",
             "mitre_technique": "T1059.001",
             "confidence": 0.98
         }
         self.findings.append(suspicious_event)
-        logger.warning(f"CRITICAL ANOMALY DETECTED: {suspicious_event['parent_process']} -> {suspicious_event['child_process'][:14]}...")
+        logger.warning(f"CRITICAL ANOMALY DETECTED: {parent_proc} -> {child_proc[:14]}...")
 
     def export_results(self, output_path: Path, output_format: str = "json") -> None:
         """Safely serializes findings to JSON or CSV for downstream SIEM ingestion."""
@@ -77,7 +79,7 @@ class EvtxAnalyzer:
             if output_format.lower() == "csv":
                 import csv
                 with open(output_path, 'w', newline='', encoding='utf-8') as f:
-                    writer = csv.DictWriter(f, fieldnames=self.findings[0].keys())
+                    writer = csv.DictWriter(f, fieldnames=list(self.findings[0].keys()))
                     writer.writeheader()
                     writer.writerows(self.findings)
                 logger.info(f"Successfully exported {len(self.findings)} alert(s) to CSV at {output_path}")
