@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: evtx-hound
+Version: 0.1.0
+Summary: High-reliability EVTX log parser and triage engine for enterprise security analysts.
+Author-email: "Nam Hai (ZlightkunZ)" <zlightkunz@gmail.com>
+Project-URL: Homepage, https://github.com/ZlightkunZ/evtx-hound
+Project-URL: Bug Tracker, https://github.com/ZlightkunZ/evtx-hound/issues
+Project-URL: Documentation, https://github.com/ZlightkunZ/evtx-hound#readme
+Keywords: security,evtx,incident-response,blue-team,threat-hunting
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# EVTX Triage Toolkit
+
+A high-performance Python CLI utility designed for incident responders and SOC analysts to quickly parse Windows Event Logs (`.evtx`) and identify suspicious parent-child process relationships.
+
+## Features
+- Parses `Security.evtx` and `Sysmon.evtx` locally.
+- Identifies LOLBin (Living Off The Land Binaries) anomalies (e.g. `word.exe` spawning `cmd.exe`).
+- Outputs findings to console, JSON, or CSV.
+
+## Usage
+
+```bash
+pip install -r requirements.txt
+python triage.py --file Security.evtx --output results.json
+```

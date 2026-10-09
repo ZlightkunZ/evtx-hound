@@ -21,8 +21,14 @@ def test_analyze_engine_logic(tmp_path):
     assert len(analyzer.findings) == 1
     assert analyzer.findings[0]["event_id"] == 4688
     
-    # Test export
+    # Test export (JSON)
     out_file = tmp_path / "out.json"
-    analyzer.export_results(out_file)
+    analyzer.export_results(out_file, output_format="json")
     assert out_file.exists()
     assert '"CRITICAL"' in out_file.read_text()
+
+    # Test export (CSV)
+    out_csv = tmp_path / "out.csv"
+    analyzer.export_results(out_csv, output_format="csv")
+    assert out_csv.exists()
+    assert 'WINWORD.EXE' in out_csv.read_text()

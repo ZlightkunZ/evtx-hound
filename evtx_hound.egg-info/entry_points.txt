@@ -1,0 +1,2 @@
+[console_scripts]
+evtx-hound = triage:main

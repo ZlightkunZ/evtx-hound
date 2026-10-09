@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+triage.py
+evtx_hound.egg-info/PKG-INFO
+evtx_hound.egg-info/SOURCES.txt
+evtx_hound.egg-info/dependency_links.txt
+evtx_hound.egg-info/entry_points.txt
+evtx_hound.egg-info/top_level.txt
+tests/test_triage.py

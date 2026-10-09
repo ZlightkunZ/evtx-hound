@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evtx-hound"
+version = "0.2.0"
+authors = [
+  { name="Nam Hai (ZlightkunZ)", email="zlightkunz@gmail.com" },
+]
+description = "High-reliability EVTX log parser and triage engine for enterprise security analysts."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+]
+keywords = ["security", "evtx", "incident-response", "blue-team", "threat-hunting"]
+
+[project.urls]
+"Homepage" = "https://github.com/ZlightkunZ/evtx-hound"
+"Bug Tracker" = "https://github.com/ZlightkunZ/evtx-hound/issues"
+"Documentation" = "https://github.com/ZlightkunZ/evtx-hound#readme"
+
+[project.scripts]
+evtx-hound = "triage:main"
